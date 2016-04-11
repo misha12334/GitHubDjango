@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+        <title>Github</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/readable/bootstrap.min.css" rel="stylesheet">
+        <link href="jumbotron.css" rel="stylesheet">
+    </head>
+    <style>
+        table
+                    {
+                        width: 80%; /* Ширина таблицы */
+                        border-spacing: 2px; /* Расстояние между ячейками */
+                        font-size: 100%;
+
+                    }
+
+        td, th
+                    {
+                        height: 50px;
+                    }
+
+        .first_block
+        {
+            display: inline-block;
+            width:210px;
+            height:18px;
+        }
+        .second_block
+        {
+            display: none;
+        }
+        .first_block:hover .second_block
+        {
+            display: block;
+        }
+    </style>
+
+    <body>
+        <div class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Github</a>
+                </div>
+                <a  class="navbar-text navbar-right" > {{ name }}, {{ company }}</a >
+            </div>
+        </nav>
+        </div>
+            <br><br><br><br><br><br>
+        <div class="jumbotron" style="width:1000px;margin: auto;" >
+            <div class="container">
+
+            <form class="form-horizontal">
+                 <fieldset>
+                <table class="table table-hover table-bordered">
+                    <tr ><th>Репозиторий</th><th>Описание</th><th>Дата изменения</th><th>Действие</th></tr>
+                     {% for repo in list_rep %}
+                         <tr>
+                            <td>  {{ repo.name }} </td>
+                            <td>  {{ repo.description }}  </td>
+                            <td>  {{ repo.updated_at }}  </td>
+                            <td>
+                                <div class='first_block'>
+                                    <div class='second_block'>
+                                        <a class="btn btn-success btn-sm"  role="button"
+                                        href="#/">Скачать .zip</a>
+                                        <a class="btn btn-success btn-sm"  role="button"
+                                        href="#/">Удалить</a>
+                                    </div>
+                                </div>
+                            </td>
+                         </tr>
+                     {% endfor %}
+
+                </table>
+                  </fieldset>
+            </form>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
